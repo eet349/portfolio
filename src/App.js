@@ -1,21 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
+import Footer from './Footer';
+import Home from './Home';
+import Resume from './Resume';
+import Portfolio from './Portfolio';
+import Contact from './Contact';
+import About from './About';
+import LeftSider from './LeftSider';
+import Nav from './Nav';
+import RightSider from './RightSider';
+import { Route, Switch } from 'react-router-dom';
 
 const App = () => {
 	return (
 		<div className='App'>
-			<header className='App-header'>
-				<img src={logo} className='App-logo' alt='logo' />
-				<p>
-					Edit <code>src/App.js</code> and save to reload.
-				</p>
-				<a
-					className='App-link'
-					href='https://reactjs.org'
-					target='_blank'
-					rel='noopener noreferrer'
-				></a>
-			</header>
+			<Nav />
+			<LeftSider />
+			<Switch>
+				<Route exact path='/' component={Home} />
+				{/* <Home /> */}
+				{/* </Route> */}
+				<Route path='/resume' component={Resume} />
+				{/* <Resume /> */}
+				{/* </Route> */}
+				<Route path='/portfolio' component={Portfolio} />
+				{/* <Portfolio /> */}
+				{/* </Route> */}
+				<Route path='/contact' component={Contact} />
+				{/* <Contact /> */}
+				{/* </Route> */}
+				<Route path='/about' component={About} />
+				{/* <About /> */}
+				{/* </Route> */}
+			</Switch>
+			<RightSider />
+			<Footer />
 		</div>
 	);
 };
